@@ -1,0 +1,41 @@
+<?php
+
+namespace AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Traits;
+
+use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Models\Metabox;
+
+trait MetaboxTrait {
+	public $metaboxes = [];
+
+	abstract public function get_screen_id() : string;
+
+	public function add_meta_box( string $title, string $context = 'default', array $args = [] ) : Metabox {
+		$metabox = new Metabox( $title, $this->get_screen_id(), $context, $args );
+		$this->metaboxes[] = $metabox;
+		return $metabox;
+	}
+	public function initialize_meta_boxes() {
+		add_action( 'add_meta_boxes', [ $this, 'load_meta_boxes' ] );
+		$this->prepare_meta_boxes();
+	}
+	public function prepare_meta_boxes() {
+		wp_enqueue_script( 'post' );
+		do_action( 'add_meta_boxes', $this->get_screen_id(), $this );
+	}
+	public function load_meta_boxes( $screen_id ) {
+		if ( $screen_id !== $this->get_screen_id() ) return;
+		foreach ( $this->metaboxes as $metabox ) {
+			add_meta_box(
+				$metabox->id,
+				$metabox->title,
+				[$metabox, 'render'],
+				$metabox->screen,
+				$metabox->context,
+				$metabox->priority
+			);
+		}
+	}
+	public function render_meta_boxes( string $context = 'default' ) {
+		do_meta_boxes( $this->get_screen_id(), $context, $this );
+	}
+}

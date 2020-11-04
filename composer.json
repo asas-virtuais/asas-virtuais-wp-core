@@ -1,0 +1,24 @@
+{
+    "name": "asas-virtuais/asas-virtuais-wp-core",
+    "type": "library",
+    "description": "Core of the library for coding WordPress plugins refactored",
+    "keywords": ["wordpress","wordpress-plugin","library"],
+    "homepage": "https://asasvirtuais.com",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Ícaro Carniello Capobianco",
+            "email": "icaro.capobianco@gmail.com",
+            "homepage": "https://asasvirtuais.com",
+            "role": "Developer"
+        }
+    ],
+    "require-dev": {
+        "10up/wp_mock": "0.4.2"
+    },
+    "require": {
+        "yahnis-elsts/plugin-update-checker": "^4.10",
+        "htmlburger/carbon-fields": "^3.1",
+        "wpmetabox/meta-box": "^5.3"
+    }
+}
