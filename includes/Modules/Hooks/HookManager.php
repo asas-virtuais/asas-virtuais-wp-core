@@ -10,15 +10,19 @@ class HookManager extends Manager {
 	}
 
 	public function add_action( $name, $callback, $priority = 10, $variables = 1 ) {
-		add_action( $name, $this->make_callback( $callback, $variables ), $priority, $variables );
+		$callback = $this->make_callback( $callback );
+		add_action( $name, $callback, $priority, $variables );
+		return $callback;
 	}
 
 	public function add_filter( $name, $callback, $priority = 10, $variables = 1 ) {
-		add_filter( $name, $this->make_callback( $callback, $variables ), $priority, $variables );
+		$callback = $this->make_callback( $callback );
+		add_filter( $name, $callback, $priority, $variables );
+		return $callback;
 	}
 
-	public function make_callback( $callback, $variables ) {
-		return function( $anything = false ) use ( $callback, $variables ) {
+	public function make_callback( $callback ) {
+		return function( $anything = false ) use ( $callback ) {
 			try {
 				$args = func_get_args();
 				return call_user_func_array( $callback, $args );
