@@ -1,9 +1,9 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_3_0\Traits;
+namespace AsasVirtuaisWPCore\Traits;
 
 trait ViewTrait {
 
-	abstract public function views_dir();
+	abstract public function views_dir() : string;
 
 	public function load_view( $view, $data = [] ) {
 		return $this->require_view( $view, $data, false );

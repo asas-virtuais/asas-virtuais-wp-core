@@ -1,5 +1,5 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Fields\Traits;
+namespace AsasVirtuaisWPCore\Middleware\Elements\Fields\Traits;
 
 use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Fields\Models\Field;
 

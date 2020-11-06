@@ -1,8 +1,8 @@
 <?php
 namespace AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Pages\Models;
 
-use AsasVirtuaisWPCore\V0_3_0\Traits\ViewTrait;
-use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Traits\MetaboxTrait;
+use AsasVirtuaisWPCore\Traits\ViewTrait;
+use AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Traits\MetaboxTrait;
 
 class AdminPage {
 

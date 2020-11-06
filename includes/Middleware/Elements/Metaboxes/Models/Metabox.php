@@ -2,9 +2,9 @@
 
 namespace AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Models;
 
-use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Fields\Traits\FieldsTrait;
-use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Forms\Traits\FormsTrait;
-use AsasVirtuaisWPCore\V0_3_0\Traits\ViewTrait;
+use AsasVirtuaisWPCore\Middleware\Elements\Fields\Traits\FieldsTrait;
+use AsasVirtuaisWPCore\Middleware\Elements\Forms\Traits\FormsTrait;
+use AsasVirtuaisWPCore\Traits\ViewTrait;
 
 class Metabox {
 

@@ -2,7 +2,7 @@
 
 namespace AsasVirtuaisWPCore\Modules\Post\Models;
 
-use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Strategies\PostMetabox;
+use AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Strategies\PostMetabox;
 
 abstract class AbstractPost implements PostInterface {
 	use PostMetabox;

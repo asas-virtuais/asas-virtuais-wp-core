@@ -1,5 +1,5 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Forms\Traits;
+namespace AsasVirtuaisWPCore\Middleware\Elements\Forms\Traits;
 use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Forms\Models\Form;
 
 trait FormsTrait {

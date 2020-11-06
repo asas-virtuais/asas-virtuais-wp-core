@@ -1,8 +1,8 @@
 <?php
 namespace AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Forms\Models;
 
-use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Fields\Traits\FieldsTrait;
-use AsasVirtuaisWPCore\V0_3_0\Traits\ViewTrait;
+use AsasVirtuaisWPCore\Traits\ViewTrait;
+use AsasVirtuaisWPCore\Middleware\Elements\Fields\Traits\FieldsTrait;
 
 class Form {
 

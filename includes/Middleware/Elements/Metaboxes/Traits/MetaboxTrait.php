@@ -1,6 +1,6 @@
 <?php
 
-namespace AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Traits;
+namespace AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Traits;
 
 use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Models\Metabox;
 
@@ -9,7 +9,7 @@ trait MetaboxTrait {
 
 	abstract public function get_screen_id() : string;
 
-	public function add_meta_box( string $title, string $context = 'default', array $args = [] ) : Metabox {
+	public function add_meta_box( string $title, string $context = 'advanced', array $args = [] ) : Metabox {
 		$metabox = new Metabox( $title, $this->get_screen_id(), $context, $args );
 		$this->metaboxes[] = $metabox;
 		return $metabox;
