@@ -2,12 +2,15 @@
 
 namespace AsasVirtuaisWPCore\Modules\Post\Models;
 
-use AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Strategies\PostMetabox;
+use AsasVirtuaisWPCore\Modules\Post\Traits\PostMeta;
+use AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Strategies\PostMetaboxTrait;
 
 abstract class AbstractPost implements PostInterface {
-	use PostMetabox;
 
-	protected $wp_post;
+	use PostMeta;
+	use PostMetaboxTrait;
+
+	public $wp_post;
 
 	public function __construct( $data ) {
 		if ( is_numeric( $data ) ) {
@@ -21,35 +24,6 @@ abstract class AbstractPost implements PostInterface {
 
 	// Abstract methods
 	abstract static function post_type() : string;
-
-	// Forms & Fields
-		// public static function add_form( $form, $condtions = [] ) {
-		// return asas_virtuais_wp()->post_manager()->register_post_form( $form, static::post_type(), $condtions );
-		// }
-	// Metadata
-		/**
-		 * @param string $key
-		 * @param mixed $value
-		 * @return bool
-		 */
-		public function update_meta( $key, $value ) {
-			$result = update_post_meta( $this->get_id(), $key, $value );
-			if ( $result !== false ) {
-				return true;
-			}
-			$meta = get_post_meta( $this->get_id(), $key, true );
-			if ( $value === $meta || json_encode( $value ) === json_encode( $meta ) ) {
-				return true;
-			}
-			return false;
-		}
-		public function get_meta( $key, $fallback = null ) {
-			$result = get_post_meta( $this->get_id(), $key, true );
-			if ( $result === null && $fallback !== null ) {
-				return $fallback;
-			}
-			return $result;
-		}
 
 	// Getters
 		public function get_id() {

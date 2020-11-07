@@ -47,7 +47,7 @@ class AdminPage {
 		return $this->menu_slug;
 	}
 
-	public function views_dir() {
+	public function views_dir() : string {
 		return plugin_dir_path( __DIR__ ) . 'Views/';	
 	}
 

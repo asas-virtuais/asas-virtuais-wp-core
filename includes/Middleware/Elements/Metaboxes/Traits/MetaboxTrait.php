@@ -35,7 +35,7 @@ trait MetaboxTrait {
 			);
 		}
 	}
-	public function render_meta_boxes( string $context = 'default' ) {
+	public function render_meta_boxes( string $context = 'advanced' ) {
 		do_meta_boxes( $this->get_screen_id(), $context, $this );
 	}
 }

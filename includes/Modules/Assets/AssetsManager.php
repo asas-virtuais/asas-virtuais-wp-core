@@ -2,7 +2,10 @@
 
 namespace AsasVirtuaisWPCore\V0_3_0\Modules\Assets;
 
+use AsasVirtuaisWPCore\Traits\AssetsTrait;
+
 class AssetsManager extends \AsasVirtuaisWPCore\V0_3_0\Models\Manager {
+	use AssetsTrait;
 
 	public $prefix;
 	public $version;
@@ -11,154 +14,26 @@ class AssetsManager extends \AsasVirtuaisWPCore\V0_3_0\Models\Manager {
 	public $css_dir;
 	public $assets_dir;
 
-	public $styles        = [];
-	public $scripts       = [];
-	public $localize      = [];
-	public $admin_styles  = [];
-	public $admin_scripts = [];
-
-	// Deprecated
-	public $plugin_assets_dir;
-
 	public function initialize( $args = [] ) {
-		$this->prefix  = $args['prefix'] ?? '';
-		$this->version = $args['version'] ?? '';
+		$this->prefix     = $args['prefix']     ?? '';
+		$this->version    = $args['version']    ?? '';
+		$this->js_dir     = $args['js_dir']     ?? '';
+		$this->css_dir    = $args['css_dir']    ?? '';
+		$this->assets_dir = $args['assets_dir'] ?? '';
 
-		if ( isset( $args['js_dir'] ) ) {
-			$this->js_dir = $args['js_dir'];
-		}
-		if ( isset( $args['css_dir'] ) ) {
-			$this->css_dir = $args['css_dir'];
-		}
-		if ( isset( $args['assets_dir'] ) ) {
-			$this->assets_dir = $args['assets_dir'];
-		}
-
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_styles' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 	}
 
-	// Hooks and Internal methods
-	public function enqueue_styles() {
-		foreach ( $this->styles as $style ) {
-			$this->enqueue_style( $style );
-		}
+	public function scripts_dir(): string {
+		return $this->js_dir;
 	}
-	public function enqueue_scripts() {
-		foreach ( $this->scripts as $script ) {
-			$this->enqueue_script( $script );
-		}
+	public function styles_dir(): string {
+		return $this->css_dir;
 	}
-	public function enqueue_admin_scripts() {
-		foreach ( $this->admin_scripts as $script ) {
-			$this->enqueue_script( $script );
-		}
+	public function assets_dir(): string {
+		return $this->assets_dir;
 	}
-	public function enqueue_admin_styles() {
-		foreach ( $this->admin_styles as $style ) {
-			$this->enqueue_style( $style );
-		}
-	}
-	private function enqueue_style( $style ) {
-		return wp_enqueue_style( $style->name, $style->src, $style->deps, $this->version, $style->media );
-	}
-	private function enqueue_script( $script ) {
-		wp_enqueue_script( $script->name, $script->src, $script->deps, $this->version, $script->footer );
-		$localize_arr = $this->localize[ $script->name ] ?? false;
-		if ( $localize_arr ) {
-			foreach ( $localize_arr as $localize ) {
-				wp_localize_script( $script->name, $localize->name, $localize->data );
-			}
-		}
-	}
-
-	// Public methods for local scripts and styles
-	public function add_local_script( $name, $dir = false, $footer = true, $deps = [] ) {
-
-		$dir = $dir ?? $this->js_dir;
-		$src = self::asset_file_url( $name, $dir, 'js' );
-
-		$this->scripts[] = (object) compact( 'name', 'src', 'footer', 'deps' );
-	}
-	public function add_local_admin_script( $name, $dir = false, $footer = true, $deps = [] ) {
-
-		$dir = $dir ?? $this->js_dir;
-		$src = self::asset_file_url( $name, $dir, 'js' );
-
-		$this->admin_scripts[] = (object) compact( 'name', 'src', 'footer', 'deps' );
-	}
-	public function add_local_style( $name, $dir, $deps = [], $media = 'all' ) {
-
-		$dir = $dir ?? $this->css_dir;
-		$src = self::asset_file_url( $name, $dir, '.css' );
-
-		$this->styles[] = $this->compact_style( $name, $src, $deps, $media );
-	}
-	public function add_local_admin_style( $name, $dir, $deps = [], $media = 'all' ) {
-
-		$dir = $dir ?? $this->css_dir;
-		$src = self::asset_file_url( $name, $dir, '.css' );
-
-		$this->admin_styles[] = $this->compact_style( $name, $src, $deps, $media );
-	}
-
-	// Public methods for remote (cdn) scripts and styles
-	public function add_remote_script( $name, $src, $footer = true, $deps = [] ) {
-		$this->scripts[] = $this->compact_script( $name, $src, $footer, $deps );
-	}
-	public function add_remote_admin_script( $name, $src, $footer = true, $deps = [] ) {
-		$this->admin_scripts[] = $this->compact_script( $name, $src, $footer, $deps );
-	}
-	public function add_remote_style( $name, $src, $deps = [], $media = 'all' ) {
-		$this->styles[] = $this->compact_style( $name, $src, $deps, $media );
-	}
-	public function add_remote_admin_style( $name, $src, $deps = [], $media = 'all' ) {
-		$this->admin_styles[] = $this->compact_style( $name, $src, $deps, $media );
-	}
-
-	/** Converts script properties into object, applies prefix set to the manager */
-	public function compact_script( $name, $src, $footer = true, $deps = [] ) {
-		$name = $this->prefix . $name;
-		return (object) compact( 'name', 'src', 'footer', 'deps' );
-	}
-	/** Converts style properties into object, applies prefix set to the manager */
-	public function compact_style( $name, $src, $deps = [], $media = 'all' ) {
-		$name = $this->prefix . $name;
-		return (object) compact( 'name', 'src', 'deps', 'media' );
-	}
-
-	// Register Methods
-	public function register_style( $name, $src = false, $deps = [], $media = 'all' ) {
-		$name = $this->prefix . $name;
-		$src  = $src ?? static::asset_file_url( $name, $this->css_dir, '.css' );
-		wp_register_style( $name, $src, $deps, $this->version, $media );
-	}
-	public function register_script( $name, $src = false, $footer = true, $deps = [] ) {
-		$name = $this->prefix . $name;
-		$src  = $src ?? static::asset_file_url( $name, $this->js_dir, 'js' );
-		wp_register_script( $name, $src, $deps, $footer, $this->version, $footer );
-	}
-
-	public function localize_script( $handle, $name, $data ) {
-		$this->localize[ $handle ][] = (object) compact( 'name', 'data' );
-	}
-
-	public static function asset_file_url( $name, $dir_path, $extension ) {
-
-		$min = "$name.min.$extension";
-		$src = $name . $extension;
-
-		$dir_url = plugin_dir_url( $dir_path . $src );
-
-		if ( file_exists( $dir_path . $min ) ) {
-			return $dir_url . $min;
-		} elseif ( file_exists( $dir_path . $src ) ) {
-			return $dir_url . $src;
-		} else {
-			return $dir_url . $src;
-		}
+	public function assets_prefix () : string {
+		return $this->prefix;
 	}
 
 }

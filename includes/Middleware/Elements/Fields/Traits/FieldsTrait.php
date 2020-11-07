@@ -1,13 +1,13 @@
 <?php
 namespace AsasVirtuaisWPCore\Middleware\Elements\Fields\Traits;
 
-use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Fields\Models\Field;
+use AsasVirtuaisWPCore\Middleware\Elements\Fields\Models\FieldPrototype;
 
 trait FieldsTrait {
 
 	public $fields = [];
 	public function add_field( $name, $type, $args = [] ) {
-		$this->fields[] = new Field( $name, $type, $args );
+		$this->fields[] = new FieldPrototype( $name, $type, $args );
 		return $this;
 	}
 }

@@ -18,7 +18,7 @@ class Form {
 		$this->action = $action;
 	}
 
-	public function views_dir() {
+	public function views_dir() : string {
 		return plugin_dir_path( __DIR__ ) . 'Views/';	
 	}
 
