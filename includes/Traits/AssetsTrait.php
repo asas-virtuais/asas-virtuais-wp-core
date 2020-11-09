@@ -51,28 +51,27 @@ trait AssetsTrait {
 	// Public methods for local scripts and styles
 		public function add_script( $name, $src = false, $footer = true, $deps = [] ) {
 
-			$src = $src ?? static::asset_file_url( $name, $this->scripts_dir(), 'js' );
-
+			$src = $src ? $src : static::asset_file_url( $name, $this->scripts_dir(), 'js' );
 			$this->scripts[] = $this->compact_script( $name, $src, $footer, $deps );
 			return $this;
 		}
 		public function add_admin_script( $name, $src = false, $footer = true, $deps = [] ) {
 
-			$src = $src ?? static::asset_file_url( $name, $this->scripts_dir(), 'js' );
+			$src = $src ? $src : static::asset_file_url( $name, $this->scripts_dir(), 'js' );
 
 			$this->admin_scripts[] = $this->compact_script( $name, $src, $footer, $deps );
 			return $this;
 		}
 		public function add_style( $name, $src = false, $deps = [], $media = 'all' ) {
 
-			$src = $src ?? static::asset_file_url( $name, $this->styles_dir(), 'css' );
+			$src = $src ? $src : static::asset_file_url( $name, $this->styles_dir(), 'css' );
 
 			$this->styles[] = $this->compact_style( $name, $src, $deps, $media );
 			return $this;
 		}
 		public function add_admin_style( $name, $src = false, $deps = [], $media = 'all' ) {
 
-			$src = $src ?? static::asset_file_url( $name, $this->styles_dir(), 'css' );
+			$src = $src ? $src : static::asset_file_url( $name, $this->styles_dir(), 'css' );
 
 			$this->admin_styles[] = $this->compact_style( $name, $src, $deps, $media );
 			return $this;

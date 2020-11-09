@@ -23,7 +23,6 @@ trait PostMeta {
 		if ( ! current_user_can( 'edit_post', $post_id ) ) {
 			return;
 		}
-
 		foreach ( $class::$metadata as $name ) {
 
 			if ( ! isset( $_POST[$name] ) ) {

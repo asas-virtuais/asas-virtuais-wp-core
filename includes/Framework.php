@@ -4,8 +4,9 @@ namespace AsasVirtuaisWPCore\V0_3_0;
 use AsasVirtuaisWPCore\V0_3_0\Modules\Assets\AssetsManager;
 use AsasVirtuaisWPCore\V0_3_0\Modules\Admin\AdminManager;
 use AsasVirtuaisWPCore\V0_3_0\Modules\Hooks\HookManager;
-use AsasVirtuaisWPCore\V0_3_0\Modules\Post\CPTManager;
 use AsasVirtuaisWPCore\V0_3_0\Modules\PuC\UpdateManager;
+use AsasVirtuaisWPCore\V0_3_0\Modules\Post\CPTManager;
+use AsasVirtuaisWPCore\V0_3_0\Modules\REST\RestManager;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -97,6 +98,16 @@ class Framework {
 			$this->cpt_manager->initialize();
 		}
 		return $this->cpt_manager;
+	}
+	private $rest_manager;
+	/** @return RestManager */
+	public function rest_manager( string $route_namespace, $args = [] ) : RestManager {
+		if ( ! isset( $this->rest_manager ) ) {
+			$this->rest_manager = new RestManager( $this );
+			$args['route_namespace'] = $route_namespace;
+			$this->rest_manager->initialize( $args );
+		}
+		return $this->rest_manager;
 	}
 
 	/**

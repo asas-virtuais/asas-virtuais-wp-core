@@ -8,7 +8,7 @@ use \AsasVirtuaisWPCore\Middleware\Elements\Fields\Models\Field;
 <div>
 
 	<label>
-		<input type="checkbox" name="<?= $field->name ?>" value="1" <?php echo $field->get_value() ? 'checked' : '' ?> >
+		<input type="checkbox" name="<?= $field->name ?>" value="true" <?php echo $field->get_value() ? 'checked' : '' ?> >
 		<span><?= $field->label ?></span>
 	</label>
 	<p>

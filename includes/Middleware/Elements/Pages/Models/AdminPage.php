@@ -44,8 +44,15 @@ class AdminPage {
 		foreach ( $this->options as $option ) {
 			$value = $_POST[$option] ?? false;
 			if ( $value ) {
+				echo "<div>";
+				echo "Updated option: $option with value ";
+				av_show( $value, false, false );
+				echo "</div>";
 				update_option( $option, $value );
 			} else {
+				echo "<div>";
+				echo "Cleared option: $option with value ";
+				echo "</div>";
 				update_option( $option, null );
 			}
 		}
@@ -54,7 +61,9 @@ class AdminPage {
 		$this->options[] = $option;
 	}
 	public function render() {
-		$this->save_options();
+		if ( isset( $_POST['save'] ) ) {
+			$this->save_options();
+		}
 		$this->add_meta_box( 'Publish', 'sidebar', [
 			'callback' => function() {
 				?>
