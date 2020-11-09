@@ -3,36 +3,32 @@ namespace AsasVirtuaisWPCore\Traits;
 
 trait AssetsTrait {
 
-	public $styles        = [];
-	public $scripts       = [];
-	public $localize      = [];
-	public $admin_styles  = [];
-	public $admin_scripts = [];
+	public $styles           = [];
+	public $scripts          = [];
+	public $localize         = [];
+	public $admin_styles     = [];
+	public $admin_scripts    = [];
+	public $register_styles  = [];
+	public $register_scripts = [];
 
 	public function set_script_hooks() {
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_styles' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
 	}
 
 	// Hooked Methods
-		public function enqueue_styles() {
+		public function enqueue_assets() {
+			foreach ( $this->scripts as $script ) {
+				$this->enqueue_script( $script );
+			}
 			foreach ( $this->styles as $style ) {
 				$this->enqueue_style( $style );
 			}
 		}
-		public function enqueue_scripts() {
-			foreach ( $this->scripts as $script ) {
-				$this->enqueue_script( $script );
-			}
-		}
-		public function enqueue_admin_scripts() {
+		public function enqueue_admin_assets() {
 			foreach ( $this->admin_scripts as $script ) {
 				$this->enqueue_script( $script );
 			}
-		}
-		public function enqueue_admin_styles() {
 			foreach ( $this->admin_styles as $style ) {
 				$this->enqueue_style( $style );
 			}

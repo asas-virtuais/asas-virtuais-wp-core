@@ -19,7 +19,7 @@ class Form {
 	}
 
 	public function views_dir() : string {
-		return plugin_dir_path( __DIR__ ) . 'Views/';	
+		return plugin_dir_path( __DIR__ ) . 'Views/';
 	}
 
 	public function render() {

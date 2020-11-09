@@ -1,16 +1,17 @@
 <?php
 
-namespace AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Traits;
+namespace AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Strategies;
 
-use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Models\MetaboxPrototype;
+use AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Models\AdminMetabox;
 
-trait MetaboxTrait {
+trait AdminMetaboxTrait {
 	public $metaboxes = [];
 
 	abstract public function get_screen_id() : string;
 
-	public function add_meta_box( string $title, string $context = 'advanced', array $args = [] ) : MetaboxPrototype {
-		$metabox = new MetaboxPrototype( $title, $this->get_screen_id(), $context, $args );
+	public function add_meta_box( string $title, string $context = 'advanced', array $args = [] ) : AdminMetabox {
+		$metabox = new AdminMetabox( $title, $this->get_screen_id(), $context, $args );
+		$metabox->set_admin_page( $this );
 		$this->metaboxes[] = $metabox;
 		return $metabox;
 	}

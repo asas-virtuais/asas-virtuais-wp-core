@@ -1,13 +1,13 @@
 <?php
 namespace AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Pages\Models;
 
+use AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Strategies\AdminMetaboxTrait;
 use AsasVirtuaisWPCore\Traits\ViewTrait;
-use AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Traits\MetaboxTrait;
 
 class AdminPage {
 
 	use ViewTrait;
-	use MetaboxTrait;
+	use AdminMetaboxTrait;
 
 	public $capability;
 	public $page_title;
@@ -20,26 +20,14 @@ class AdminPage {
 
 	public function __construct( string $title, array $args = [] ) {
 
-		$defaults = [
-			'capability' => 'manage_options',
-			'position'   => null,
-			'function'   => [ $this, 'render' ],
-			'icon_url'   => '',
-			'page_title' => $title,
-			'menu_title' => $title,
-			'menu_slug'  => sanitize_title( $title ),
-			'parent'     => null
-		];
-		$attributes = array_replace( $defaults, $args );
-
-		$this->capability = $attributes['capability'];
-		$this->page_title = $attributes['page_title'];
-		$this->menu_title = $attributes['menu_title'];
-		$this->menu_slug  = $attributes['menu_slug'];
-		$this->icon_url   = $attributes['icon_url'];
-		$this->function   = $attributes['function'];
-		$this->position   = $attributes['position'];
-		$this->parent     = $attributes['parent'];
+		$this->capability = $args['capability'] ?? 'manage_options';
+		$this->page_title = $args['page_title'] ?? $title;
+		$this->menu_title = $args['menu_title'] ?? $title;
+		$this->menu_slug  = $args['menu_slug']  ?? sanitize_title( $title );
+		$this->icon_url   = $args['icon_url']   ?? null;
+		$this->function   = $args['function']   ?? [ $this, 'render' ];
+		$this->position   = $args['position']   ?? null;
+		$this->parent     = $args['parent']     ?? null;
 	}
 
 	/** @see MetaboxTrait */
@@ -51,7 +39,22 @@ class AdminPage {
 		return plugin_dir_path( __DIR__ ) . 'Views/';	
 	}
 
+	private $options = [];
+	public function save_options() {
+		foreach ( $this->options as $option ) {
+			$value = $_POST[$option] ?? false;
+			if ( $value ) {
+				update_option( $option, $value );
+			} else {
+				update_option( $option, null );
+			}
+		}
+	}
+	public function register_option( string $option ) {
+		$this->options[] = $option;
+	}
 	public function render() {
+		$this->save_options();
 		$this->add_meta_box( 'Publish', 'sidebar', [
 			'callback' => function() {
 				?>

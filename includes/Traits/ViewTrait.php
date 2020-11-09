@@ -15,30 +15,39 @@ trait ViewTrait {
 	
 	public function require_view( $view, $data = [], $echo = false ) {
 
-		$dir = $this->views_dir();
+		try {
+			$dir = $this->views_dir();
 
-		if ( $data ) {
-			extract( $data, EXTR_SKIP );
-		}
-	
-		if ( $echo === true ) {
-
-			return include( $dir . $view . '.php' );
-
-		} else {
-	
-			ob_start();
-	
-			$return = include( $dir . $view . '.php' );
-			if ( $return ) {
-				$return = ob_get_contents();
+			if ( $data ) {
+				extract( $data, EXTR_SKIP );
 			}
+		
+			if ( $echo === true ) {
 	
-			ob_end_clean();
+				return include( $dir . $view . '.php' );
 	
-			return $return;
+			} else {
+		
+				ob_start();
+		
+				$return = include( $dir . $view . '.php' );
+				if ( $return ) {
+					$return = ob_get_contents();
+				}
+		
+				ob_end_clean();
+		
+				return $return;
+			}
+		
+		} catch (\Throwable $th) {
+			$details = "<pre>" . av_get_error_details( $th ) . "</pre>";
+			if ( $echo ) {
+				echo $details;
+			} else {
+				return $details;
+			}
 		}
-	
 	}
 
 }

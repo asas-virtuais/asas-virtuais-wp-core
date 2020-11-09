@@ -13,13 +13,21 @@ class WordpressField extends FieldPrototype {
 
 	public function __construct( string $name, string $type, $callback, $args = [] ) {
 		parent::__construct( $name, $type, $callback, $args );
+
+		if ( did_action( 'wp_enqueue_scripts' ) ) {
+			$this->register_field_assets();
+		} else {
+			add_action( 'wp_enqueue_scripts', function() {
+				$this->register_field_assets();
+			} );
+		}
 	}
 
 	public function register_field_assets() {
 		$this->register_style( $this->type );
 		$this->register_script( $this->type );
 	}
-	public function enqueue_field_assets() {  
+	public function enqueue_field_assets() {
 		wp_enqueue_style( $this->type );
 		wp_enqueue_script( $this->type );
 	}
@@ -37,10 +45,10 @@ class WordpressField extends FieldPrototype {
 		return $this->assets_dir() . 'css/';
 	}
 	public function assets_dir() : string {
-		return dirname( __DIR__ ) . '/Assets/';
+		return plugin_dir_path( __DIR__ ) . 'Assets/';
 	}
 	public function views_dir() : string {
-		return dirname( __DIR__ ) . '/Views/';
+		return plugin_dir_path( __DIR__ ) . 'Views/';
 	}
 	public function render() {
 		$this->enqueue_field_assets();
