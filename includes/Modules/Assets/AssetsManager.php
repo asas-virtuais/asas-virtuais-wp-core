@@ -8,19 +8,19 @@ class AssetsManager extends \AsasVirtuaisWPCore\V0_3_0\Models\Manager {
 	use AssetsTrait;
 
 	public $prefix;
-	public $version;
+	public $assets_version;
 
 	public $js_dir;
 	public $css_dir;
 	public $assets_dir;
 
 	public function initialize( $args = [] ) {
-		$this->prefix     = $args['prefix']     ?? '';
-		$this->version    = $args['version']    ?? '';
-		$this->js_dir     = $args['js_dir']     ?? '';
-		$this->css_dir    = $args['css_dir']    ?? '';
-		$this->assets_dir = $args['assets_dir'] ?? '';
-
+		$this->assets_version = $args['version']    ?? '';
+		$this->assets_dir     = $args['assets_dir'] ?? '';
+		$this->css_dir        = $args['css_dir']    ?? '';
+		$this->js_dir         = $args['js_dir']     ?? '';
+		$this->prefix         = $args['prefix']     ?? '';
+		$this->set_script_hooks();
 	}
 
 	public function scripts_dir(): string {

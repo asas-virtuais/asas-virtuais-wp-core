@@ -17,19 +17,17 @@ class WordpressField extends FieldPrototype {
 		if ( did_action( 'wp_enqueue_scripts' ) ) {
 			$this->register_field_assets();
 		} else {
-			add_action( 'wp_enqueue_scripts', function() {
-				$this->register_field_assets();
-			} );
+			add_action( 'admin_enqueue_scripts', [ $this, 'register_field_assets' ] );
 		}
 	}
 
 	public function register_field_assets() {
 		$this->register_style( $this->type );
-		$this->register_script( $this->type );
+		$this->register_script( $this->type, false, true, [ 'jquery' ] );
 	}
 	public function enqueue_field_assets() {
-		wp_enqueue_style( $this->type );
-		wp_enqueue_script( $this->type );
+		wp_enqueue_style(  $this->assets_prefix() . $this->type );
+		wp_enqueue_script(  $this->assets_prefix() . $this->type );
 	}
 
 	public function get_value() {

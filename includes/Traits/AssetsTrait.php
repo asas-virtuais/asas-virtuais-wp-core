@@ -36,10 +36,10 @@ trait AssetsTrait {
 
 	// Enqueue Methods
 		private function enqueue_style( $style ) {
-			return wp_enqueue_style( $style->name, $style->src, $style->deps, $this->version, $style->media );
+			return wp_enqueue_style( $style->name, $style->src, $style->deps, ( $this->assets_version ?? false ), $style->media );
 		}
 		private function enqueue_script( $script ) {
-			wp_enqueue_script( $script->name, $script->src, $script->deps, $this->version, $script->footer );
+			wp_enqueue_script( $script->name, $script->src, $script->deps, ( $this->assets_version ?? false ), $script->footer );
 			$localize_arr = $this->localize[ $script->name ] ?? false;
 			if ( $localize_arr ) {
 				foreach ( $localize_arr as $localize ) {
@@ -90,16 +90,20 @@ trait AssetsTrait {
 
 	// Register Methods
 		public function register_style( $name, $src = false, $deps = [], $media = 'all' ) {
-			$name = $this->assets_prefix() . $name;
-			$src  = $src ?? static::asset_file_url( $name, $this->styles_dir(), 'css' );
-			wp_register_style( $name, $src, $deps, $this->version, $media );
-			return $this;
+			$src  = $src ? $src : static::asset_file_url( $name, $this->styles_dir(), 'css' );
+			$style = $this->compact_style( $name, $src, $deps, $media );
+			if ( wp_register_style( $style->name, $style->src, $style->deps, ( $this->assets_version ?? false ), $style->media ) ) {
+				return $style;
+			}
+			return false;
 		}
 		public function register_script( $name, $src = false, $footer = true, $deps = [] ) {
-			$name = $this->assets_prefix() . $name;
-			$src  = $src ?? static::asset_file_url( $name, $this->scripts_dir(), 'js' );
-			wp_register_script( $name, $src, $deps, $footer, $this->version, $footer );
-			return $this;
+			$src  = $src ? $src : static::asset_file_url( $name, $this->scripts_dir(), 'js' );
+			$script = $this->compact_script( $name, $src, $footer, $deps );
+			if ( wp_register_script( $script->name, $script->src, $script->deps, ( $this->assets_version ?? false ), $script->footer ) ) {
+				return $script;
+			}
+			return false;
 		}
 
 	// Script Localization
@@ -110,7 +114,7 @@ trait AssetsTrait {
 		public static function asset_file_url( $name, $dir_path, $extension ) {
 
 			$min = "$name.min.$extension";
-			$src = $name . $extension;
+			$src = "$name.$extension";
 
 			$dir_url = plugin_dir_url( $dir_path . $src );
 
