@@ -1,6 +1,6 @@
 <?php
 
-namespace AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Models;
+namespace AsasVirtuaisWPCore\V0_9_0\Middleware\Elements\Metaboxes\Models;
 
 use AsasVirtuaisWPCore\Middleware\Elements\Fields\Strategies\PostFields;
 use AsasVirtuaisWPCore\Middleware\Elements\Forms\Traits\FormsTrait;

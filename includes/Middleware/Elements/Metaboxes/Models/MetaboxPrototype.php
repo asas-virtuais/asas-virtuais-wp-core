@@ -1,6 +1,6 @@
 <?php
 
-namespace AsasVirtuaisWPCore\V0_3_0\Middleware\Elements\Metaboxes\Models;
+namespace AsasVirtuaisWPCore\V0_9_0\Middleware\Elements\Metaboxes\Models;
 
 class MetaboxPrototype {
 

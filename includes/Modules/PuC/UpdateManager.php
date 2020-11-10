@@ -1,7 +1,7 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_3_0\Modules\PuC;
+namespace AsasVirtuaisWPCore\V0_9_0\Modules\PuC;
 
-use \AsasVirtuaisWPCore\V0_3_0\Models\Manager;
+use \AsasVirtuaisWPCore\V0_9_0\Models\Manager;
 
 class UpdateManager extends Manager {
 

@@ -1,12 +1,12 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_3_0;
+namespace AsasVirtuaisWPCore\V0_9_0;
 
-use AsasVirtuaisWPCore\V0_3_0\Modules\Assets\AssetsManager;
-use AsasVirtuaisWPCore\V0_3_0\Modules\Admin\AdminManager;
-use AsasVirtuaisWPCore\V0_3_0\Modules\Hooks\HookManager;
-use AsasVirtuaisWPCore\V0_3_0\Modules\PuC\UpdateManager;
-use AsasVirtuaisWPCore\V0_3_0\Modules\Post\CPTManager;
-use AsasVirtuaisWPCore\V0_3_0\Modules\REST\RestManager;
+use AsasVirtuaisWPCore\V0_9_0\Modules\Assets\AssetsManager;
+use AsasVirtuaisWPCore\V0_9_0\Modules\Admin\AdminManager;
+use AsasVirtuaisWPCore\V0_9_0\Modules\Hooks\HookManager;
+use AsasVirtuaisWPCore\V0_9_0\Modules\PuC\UpdateManager;
+use AsasVirtuaisWPCore\V0_9_0\Modules\Post\CPTManager;
+use AsasVirtuaisWPCore\V0_9_0\Modules\REST\RestManager;
 
 defined( 'ABSPATH' ) || exit;
 
