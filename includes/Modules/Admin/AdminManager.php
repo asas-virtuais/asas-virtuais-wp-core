@@ -1,9 +1,9 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_0\Modules\Admin;
+namespace AsasVirtuaisWPCore\V0_9_1\Modules\Admin;
 
-use AsasVirtuaisWPCore\V0_9_0\Middleware\Elements\Pages\Models\AdminPage;
-use AsasVirtuaisWPCore\V0_9_0\Middleware\Elements\Pages\Strategies\WPAdminStrategy;
-use AsasVirtuaisWPCore\V0_9_0\Models\Manager;
+use AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Pages\Models\AdminPage;
+use AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Pages\Strategies\WPAdminStrategy;
+use AsasVirtuaisWPCore\V0_9_1\Models\Manager;
 
 class AdminManager extends Manager {
 

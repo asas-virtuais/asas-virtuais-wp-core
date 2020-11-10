@@ -1,8 +1,8 @@
 <?php
 
-namespace AsasVirtuaisWPCore\V0_9_0\Modules\Hooks;
+namespace AsasVirtuaisWPCore\V0_9_1\Modules\Hooks;
 
-use \AsasVirtuaisWPCore\V0_9_0\Models\Manager;
+use \AsasVirtuaisWPCore\V0_9_1\Models\Manager;
 
 class HookManager extends Manager {
 

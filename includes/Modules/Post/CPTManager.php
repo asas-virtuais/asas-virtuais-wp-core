@@ -1,7 +1,7 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_0\Modules\Post;
+namespace AsasVirtuaisWPCore\V0_9_1\Modules\Post;
 
-use AsasVirtuaisWPCore\V0_9_0\Models\Manager;
+use AsasVirtuaisWPCore\V0_9_1\Models\Manager;
 
 class CPTManager extends Manager {
 

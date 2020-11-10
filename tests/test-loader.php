@@ -13,7 +13,7 @@ class TestLoader extends WP_Mock\Tools\TestCase {
 	}
 
 	public function test_loader() {
-		$this->assertTrue( $this->loader instanceof \AsasVirtuaisWPCoreVersionLoader\LoaderV0_9_0 );
+		$this->assertTrue( $this->loader instanceof \AsasVirtuaisWPCoreVersionLoader\LoaderV0_9_1 );
 
 		\WP_Mock::userFunction( 'did_action', [
 			'args'   => [ 'plugins_loaded' ],

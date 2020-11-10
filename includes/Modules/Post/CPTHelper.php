@@ -1,5 +1,5 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_0\Modules\Post;
+namespace AsasVirtuaisWPCore\V0_9_1\Modules\Post;
 
 class CPTHelper {
 

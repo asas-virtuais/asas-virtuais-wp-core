@@ -1,5 +1,5 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_0\Middleware\Elements\Pages\Models;
+namespace AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Pages\Models;
 
 use AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Strategies\AdminMetaboxTrait;
 use AsasVirtuaisWPCore\Traits\ViewTrait;
