@@ -3,7 +3,7 @@ namespace AsasVirtuaisWPCore\Modules\Users;
 
 class User {
 
-	protected \WP_User $wp_user;
+	protected $wp_user;
 
 	public function __construct( $wp_user = false ) {
 		if ( ! $wp_user ) {
