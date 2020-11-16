@@ -12,10 +12,12 @@ class FieldPrototype {
 	public function __construct( string $name, string $type, $callback, $args = [] ) {
 		$this->callback = $callback;
 
-		$this->name        = $args['name']        ?? $name;
-		$this->type        = $args['type']        ?? $type;
+		$this->name        = $name;
+		$this->type        = $type;
+
 		$this->label       = $args['label']       ?? av_unslug( $name );
-		$this->attributes  = $args['attributes']  ?? [];
 		$this->description = $args['description'] ?? '';
+
+		$this->attributes  = (object) $args;
 	}
 }
