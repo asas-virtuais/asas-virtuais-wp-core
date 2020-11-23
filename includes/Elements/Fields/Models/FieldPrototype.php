@@ -1,5 +1,5 @@
 <?php
-namespace AsasVirtuaisWPCore\Middleware\Elements\Fields\Models;
+namespace AsasVirtuaisWPCore\Elements\Fields\Models;
 
 class FieldPrototype {
 

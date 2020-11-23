@@ -1,6 +1,6 @@
 <?php
 
-namespace AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Strategies;
+namespace AsasVirtuaisWPCore\Elements\Metaboxes\Strategies;
 
 use AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Metaboxes\Models\AdminMetabox;
 

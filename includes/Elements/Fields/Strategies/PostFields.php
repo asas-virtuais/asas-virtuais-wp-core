@@ -1,6 +1,6 @@
 <?php
 
-namespace AsasVirtuaisWPCore\Middleware\Elements\Fields\Strategies;
+namespace AsasVirtuaisWPCore\Elements\Fields\Strategies;
 
 use AsasVirtuaisWPCore\Middleware\Elements\Fields\Models\WordpressField;
 use AsasVirtuaisWPCore\Modules\Post\Traits\UsePostTrait;

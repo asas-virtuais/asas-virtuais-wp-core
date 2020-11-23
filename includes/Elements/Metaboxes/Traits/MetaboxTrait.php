@@ -1,6 +1,6 @@
 <?php
 
-namespace AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Traits;
+namespace AsasVirtuaisWPCore\Elements\Metaboxes\Traits;
 
 use AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Metaboxes\Models\MetaboxPrototype;
 
