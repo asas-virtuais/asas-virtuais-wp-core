@@ -2,7 +2,7 @@
 
 namespace AsasVirtuaisWPCore\Elements\Fields\Strategies;
 
-use AsasVirtuaisWPCore\Middleware\Elements\Fields\Models\WordpressField;
+use AsasVirtuaisWPCore\Elements\Fields\Models\WordpressField;
 
 trait AdminFields {
 

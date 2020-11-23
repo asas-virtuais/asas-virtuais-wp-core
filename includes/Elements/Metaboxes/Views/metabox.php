@@ -1,5 +1,5 @@
 <?php
-use AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Metaboxes\Models\Metabox;
+use AsasVirtuaisWPCore\V0_9_1\Elements\Metaboxes\Models\Metabox;
 /** @var Metabox $metabox */
 ?>
 

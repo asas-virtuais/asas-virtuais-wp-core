@@ -3,7 +3,7 @@
 namespace AsasVirtuaisWPCore\Modules\Post\Models;
 
 use AsasVirtuaisWPCore\Modules\Post\Traits\PostMeta;
-use AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Strategies\PostMetaboxTrait;
+use AsasVirtuaisWPCore\Elements\Metaboxes\Strategies\PostMetaboxTrait;
 
 abstract class AbstractPost implements PostInterface {
 

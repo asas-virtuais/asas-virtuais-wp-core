@@ -1,7 +1,7 @@
 <?php
 namespace AsasVirtuaisWPCore\Elements\Fields\Traits;
 
-use AsasVirtuaisWPCore\Middleware\Elements\Fields\Models\FieldPrototype;
+use AsasVirtuaisWPCore\Elements\Fields\Models\FieldPrototype;
 
 trait FieldsTrait {
 

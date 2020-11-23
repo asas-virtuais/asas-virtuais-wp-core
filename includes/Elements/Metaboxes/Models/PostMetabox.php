@@ -1,9 +1,9 @@
 <?php
 
-namespace AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Metaboxes\Models;
+namespace AsasVirtuaisWPCore\V0_9_1\Elements\Metaboxes\Models;
 
-use AsasVirtuaisWPCore\Middleware\Elements\Fields\Strategies\PostFields;
-use AsasVirtuaisWPCore\Middleware\Elements\Forms\Traits\FormsTrait;
+use AsasVirtuaisWPCore\Elements\Fields\Strategies\PostFields;
+use AsasVirtuaisWPCore\Elements\Forms\Traits\FormsTrait;
 use AsasVirtuaisWPCore\Traits\ViewTrait;
 
 class PostMetabox extends MetaboxPrototype {

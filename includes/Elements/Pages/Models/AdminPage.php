@@ -1,7 +1,7 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Pages\Models;
+namespace AsasVirtuaisWPCore\V0_9_1\Elements\Pages\Models;
 
-use AsasVirtuaisWPCore\Middleware\Elements\Metaboxes\Strategies\AdminMetaboxTrait;
+use AsasVirtuaisWPCore\Elements\Metaboxes\Strategies\AdminMetaboxTrait;
 use AsasVirtuaisWPCore\Traits\ViewTrait;
 
 class AdminPage {

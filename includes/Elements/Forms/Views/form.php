@@ -1,5 +1,5 @@
 <?php
-use AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Forms\Models\Form;
+use AsasVirtuaisWPCore\V0_9_1\Elements\Forms\Models\Form;
 /** @var Form $form */
 ?>
 

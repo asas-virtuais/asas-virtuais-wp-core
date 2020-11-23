@@ -2,12 +2,14 @@
 
 namespace AsasVirtuaisWPCore\Elements\Fields\Strategies;
 
-use AsasVirtuaisWPCore\Middleware\Elements\Fields\Models\WordpressField;
+use AsasVirtuaisWPCore\Elements\Fields\Models\WordpressField;
+use AsasVirtuaisWPCore\Elements\Fields\Traits\CustomFieldsTrait;
 use AsasVirtuaisWPCore\Modules\Post\Traits\UsePostTrait;
 
 trait PostFields {
 
 	use UsePostTrait;
+	use CustomFieldsTrait;
 
 	public $fields = [];
 	public function add_field( string $name, string $type, array $args = [] ) {

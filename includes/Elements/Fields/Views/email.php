@@ -1,5 +1,4 @@
 <?php
-
 use \AsasVirtuaisWPCore\Elements\Fields\Models\Field;
 /** @var Field $field */
 
@@ -8,9 +7,10 @@ use \AsasVirtuaisWPCore\Elements\Fields\Models\Field;
 <div>
 
 	<label>
-		<input type="checkbox" name="<?= $field->name ?>" value="true" <?php echo $field->get_value() ? 'checked' : '' ?> >
 		<span><?= $field->label ?></span>
+		<input type="text" name="<?= $field->name ?>" value="<?= $field->get_value() ?>" >
 	</label>
+
 	<p>
 		<?= $field->description ?>
 	</p>

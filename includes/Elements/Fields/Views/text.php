@@ -1,6 +1,6 @@
 <?php
 
-use \AsasVirtuaisWPCore\Middleware\Elements\Fields\Models\Field;
+use \AsasVirtuaisWPCore\Elements\Fields\Models\Field;
 /** @var Field $field */
 
 ?>

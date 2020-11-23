@@ -1,10 +1,10 @@
 <?php
 
-namespace AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Metaboxes\Models;
+namespace AsasVirtuaisWPCore\V0_9_1\Elements\Metaboxes\Models;
 
-use AsasVirtuaisWPCore\V0_9_1\Middleware\Elements\Pages\Models\AdminPage;
-use AsasVirtuaisWPCore\Middleware\Elements\Fields\Strategies\AdminFields;
-use AsasVirtuaisWPCore\Middleware\Elements\Forms\Traits\FormsTrait;
+use AsasVirtuaisWPCore\V0_9_1\Elements\Pages\Models\AdminPage;
+use AsasVirtuaisWPCore\Elements\Fields\Strategies\AdminFields;
+use AsasVirtuaisWPCore\Elements\Forms\Traits\FormsTrait;
 use AsasVirtuaisWPCore\Traits\ViewTrait;
 
 class AdminMetabox extends MetaboxPrototype {
