@@ -3,7 +3,6 @@ use AsasVirtuaisWPCore\Elements\Fields\Models\WordpressField;
 /** @var WordpressField $field */
 $taxonomies = get_taxonomies( [], 'objects' );
 $value = $field->get_value();
-av_show( $value, false, false );
 $value = is_array( $value ) ? $value : [];
 
 function av_terms_checkbox_loop( $terms, string $name, string $taxonomy, array $selected ) {
