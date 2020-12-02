@@ -1,8 +1,8 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_1\Elements\Pages\Strategies;
+namespace AsasVirtuaisWPCore\V0_9_2\Elements\Pages\Strategies;
 
-use AsasVirtuaisWPCore\V0_9_1\Elements\Pages\Models\AdminPage;
-use AsasVirtuaisWPCore\V0_9_1\Elements\Pages\Traits\PagesTrait;
+use AsasVirtuaisWPCore\V0_9_2\Elements\Pages\Models\AdminPage;
+use AsasVirtuaisWPCore\V0_9_2\Elements\Pages\Traits\PagesTrait;
 
 trait WPAdminStrategy {
 

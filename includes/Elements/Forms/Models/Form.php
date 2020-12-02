@@ -1,5 +1,5 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_1\Elements\Forms\Models;
+namespace AsasVirtuaisWPCore\V0_9_2\Elements\Forms\Models;
 
 use AsasVirtuaisWPCore\Traits\ViewTrait;
 use AsasVirtuaisWPCore\Elements\Fields\Traits\FieldsTrait;

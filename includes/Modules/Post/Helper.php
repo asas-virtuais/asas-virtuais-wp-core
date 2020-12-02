@@ -1,5 +1,5 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_1\Modules\Post;
+namespace AsasVirtuaisWPCore\V0_9_2\Modules\Post;
 
 class Helper {
 

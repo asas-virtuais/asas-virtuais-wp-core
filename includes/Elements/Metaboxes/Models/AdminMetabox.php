@@ -1,8 +1,8 @@
 <?php
 
-namespace AsasVirtuaisWPCore\V0_9_1\Elements\Metaboxes\Models;
+namespace AsasVirtuaisWPCore\V0_9_2\Elements\Metaboxes\Models;
 
-use AsasVirtuaisWPCore\V0_9_1\Elements\Pages\Models\AdminPage;
+use AsasVirtuaisWPCore\V0_9_2\Elements\Pages\Models\AdminPage;
 use AsasVirtuaisWPCore\Elements\Fields\Strategies\AdminFields;
 use AsasVirtuaisWPCore\Elements\Forms\Traits\FormsTrait;
 use AsasVirtuaisWPCore\Traits\ViewTrait;

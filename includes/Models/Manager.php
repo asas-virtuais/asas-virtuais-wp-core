@@ -1,8 +1,8 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_1\Models;
+namespace AsasVirtuaisWPCore\V0_9_2\Models;
 
 abstract class Manager {
-	/** @var \AsasVirtuaisWPCore\V0_9_1\Framework $framework */
+	/** @var \AsasVirtuaisWPCore\V0_9_2\Framework $framework */
 	public $framework;
 	public function __construct( $framework ) {
 		$this->framework = $framework;

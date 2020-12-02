@@ -2,7 +2,7 @@
 
 namespace AsasVirtuaisWPCore\Elements\Metaboxes\Traits;
 
-use AsasVirtuaisWPCore\V0_9_1\Elements\Metaboxes\Models\MetaboxPrototype;
+use AsasVirtuaisWPCore\V0_9_2\Elements\Metaboxes\Models\MetaboxPrototype;
 
 trait MetaboxTrait {
 	public $metaboxes = [];

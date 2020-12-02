@@ -1,7 +1,7 @@
 <?php
 namespace AsasVirtuaisWPCore\Elements\Metaboxes\Strategies;
 
-use AsasVirtuaisWPCore\V0_9_1\Elements\Metaboxes\Models\PostMetabox;
+use AsasVirtuaisWPCore\V0_9_2\Elements\Metaboxes\Models\PostMetabox;
 
 trait PostMetaboxTrait {
 

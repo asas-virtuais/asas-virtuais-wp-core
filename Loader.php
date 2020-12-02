@@ -2,10 +2,10 @@
 /** This file should be required without the use of autoloaders, it returns the instance of the loader class */
 namespace AsasVirtuaisWPCoreVersionLoader;
 
-if ( ! class_exists( 'AsasVirtuaisWPCoreVersionLoader\\LoaderV0_9_1' ) ) {
+if ( ! class_exists( 'AsasVirtuaisWPCoreVersionLoader\\LoaderV0_9_2' ) ) {
 
 	/** Loader class */
-	final class LoaderV0_9_1 {
+	final class LoaderV0_9_2 {
 
 		public $dirpath;
 		public $version;
@@ -74,4 +74,4 @@ if ( ! class_exists( 'AsasVirtuaisWPCoreVersionLoader\\LoaderV0_9_1' ) ) {
 	}
 }
 
-return new LoaderV0_9_1( __DIR__, 'V0_9_1' );
+return new LoaderV0_9_2( __DIR__, 'V0_9_2' );

@@ -2,7 +2,7 @@
 
 namespace AsasVirtuaisWPCore\Elements\Metaboxes\Strategies;
 
-use AsasVirtuaisWPCore\V0_9_1\Elements\Metaboxes\Models\AdminMetabox;
+use AsasVirtuaisWPCore\V0_9_2\Elements\Metaboxes\Models\AdminMetabox;
 
 trait AdminMetaboxTrait {
 	public $metaboxes = [];

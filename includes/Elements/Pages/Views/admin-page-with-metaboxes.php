@@ -1,5 +1,5 @@
 <?php
-use AsasVirtuaisWPCore\V0_9_1\Elements\Pages\Models\AdminPage;
+use AsasVirtuaisWPCore\V0_9_2\Elements\Pages\Models\AdminPage;
 /** @var AdminPage $admin_page */
 ?>
 

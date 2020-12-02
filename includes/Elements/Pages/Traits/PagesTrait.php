@@ -1,7 +1,7 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_1\Elements\Pages\Traits;
+namespace AsasVirtuaisWPCore\V0_9_2\Elements\Pages\Traits;
 
-use AsasVirtuaisWPCore\V0_9_1\Elements\Pages\Models\AdminPage;
+use AsasVirtuaisWPCore\V0_9_2\Elements\Pages\Models\AdminPage;
 
 trait PagesTrait {
 

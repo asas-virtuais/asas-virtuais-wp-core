@@ -1,10 +1,10 @@
 <?php
 
-use AsasVirtuaisWPCore\V0_9_1\Modules\Assets\AssetsManager;
-use AsasVirtuaisWPCore\V0_9_1\Modules\Admin\AdminManager;
-use AsasVirtuaisWPCore\V0_9_1\Modules\Hooks\HookManager;
-use AsasVirtuaisWPCore\V0_9_1\Modules\PuC\UpdateManager;
-use AsasVirtuaisWPCore\V0_9_1\Modules\Post\PostManager;
+use AsasVirtuaisWPCore\V0_9_2\Modules\Assets\AssetsManager;
+use AsasVirtuaisWPCore\V0_9_2\Modules\Admin\AdminManager;
+use AsasVirtuaisWPCore\V0_9_2\Modules\Hooks\HookManager;
+use AsasVirtuaisWPCore\V0_9_2\Modules\PuC\UpdateManager;
+use AsasVirtuaisWPCore\V0_9_2\Modules\Post\PostManager;
 
 class TestMainClass extends WP_Mock\Tools\TestCase {
 
@@ -28,7 +28,7 @@ class TestMainClass extends WP_Mock\Tools\TestCase {
 			'return' => true,
 		] );
 
-		$this->assertTrue( $framework instanceof AsasVirtuaisWPCore\V0_9_1\Framework );
+		$this->assertTrue( $framework instanceof AsasVirtuaisWPCore\V0_9_2\Framework );
 		$this->assertTrue( $framework->assets_manager() instanceof AssetsManager );
 		$this->assertTrue( $framework->update_manager() instanceof UpdateManager );
 		$this->assertTrue( $framework->admin_manager() instanceof AdminManager );

@@ -1,6 +1,6 @@
 <?php
 namespace AsasVirtuaisWPCore\Elements\Forms\Traits;
-use AsasVirtuaisWPCore\V0_9_1\Elements\Forms\Models\Form;
+use AsasVirtuaisWPCore\V0_9_2\Elements\Forms\Models\Form;
 
 trait FormsTrait {
 

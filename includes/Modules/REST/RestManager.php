@@ -1,7 +1,7 @@
 <?php
-namespace AsasVirtuaisWPCore\V0_9_1\Modules\REST;
+namespace AsasVirtuaisWPCore\V0_9_2\Modules\REST;
 
-use AsasVirtuaisWPCore\V0_9_1\Models\Manager;
+use AsasVirtuaisWPCore\V0_9_2\Models\Manager;
 
 class RestManager extends Manager {
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace AsasVirtuaisWPCore\V0_9_1\Modules\Assets;
+namespace AsasVirtuaisWPCore\V0_9_2\Modules\Assets;
 
 use AsasVirtuaisWPCore\Traits\AssetsTrait;
 
-class AssetsManager extends \AsasVirtuaisWPCore\V0_9_1\Models\Manager {
+class AssetsManager extends \AsasVirtuaisWPCore\V0_9_2\Models\Manager {
 	use AssetsTrait;
 
 	public $prefix;
