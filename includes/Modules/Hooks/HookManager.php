@@ -33,4 +33,14 @@ class HookManager extends Manager {
 		};
 	}
 
+	public function make_shortcode_callback( string $shortcode, callable $callback ) {
+		return function ( $atts, $content = '' ) use ( $shortcode, $callback ) {
+			$args = shortcode_atts( [], $atts, $shortcode );
+			return $callback( $args, $content );
+		};
+	}
+	public function add_shortcode( string $shortcode, callable $callback ) {
+		add_shortcode( $shortcode, $this->make_shortcode_callback( $shortcode, $callback ) );
+	}
+
 }
