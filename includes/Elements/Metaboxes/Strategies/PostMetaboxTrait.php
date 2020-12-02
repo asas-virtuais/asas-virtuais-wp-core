@@ -9,7 +9,7 @@ trait PostMetaboxTrait {
 
 	abstract public static function post_type() : string;
 
-	public static function add_meta_box( string $title, string $context = 'advanced', array $args = [] ) : PostMetabox {
+		public static function add_meta_box( string $title, string $context = 'advanced', array $args = [] ) : PostMetabox {
 		$metabox = new PostMetabox( $title, static::post_type(), $context, $args );
 		$class = get_called_class();
 		$metabox->set_post_class( $class );
@@ -25,14 +25,7 @@ trait PostMetaboxTrait {
 		$class = get_called_class();
 		if ( $screen_id !== $class::post_type() ) return;
 		foreach ( $class::$metaboxes as $metabox ) {
-			add_meta_box(
-				$metabox->id,
-				$metabox->title,
-				[$metabox, 'render'],
-				$metabox->screen,
-				$metabox->context,
-				$metabox->priority
-			);
+			$metabox->initialize();
 		}
 	}
 
