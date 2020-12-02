@@ -21,7 +21,7 @@ class CPTManager extends Manager {
 		$slug = $cpt_class::post_type();
 
 		$args = array_replace( [
-			'labels'              => CPTHelper::cpt_labels( $slug ),
+			'labels'              => Helper::cpt_labels( $slug ),
 			'description'         => '',
 			'public'              => true,
 			'hierarchical'        => false,

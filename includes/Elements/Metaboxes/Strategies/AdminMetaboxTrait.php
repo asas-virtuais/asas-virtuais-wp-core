@@ -26,14 +26,7 @@ trait AdminMetaboxTrait {
 	public function load_meta_boxes( $screen_id ) {
 		if ( $screen_id !== $this->get_screen_id() ) return;
 		foreach ( $this->metaboxes as $metabox ) {
-			add_meta_box(
-				$metabox->id,
-				$metabox->title,
-				[$metabox, 'render'],
-				$metabox->screen,
-				$metabox->context,
-				$metabox->priority
-			);
+			$metabox->initialize();
 		}
 	}
 	public function render_meta_boxes( string $context = 'advanced' ) {

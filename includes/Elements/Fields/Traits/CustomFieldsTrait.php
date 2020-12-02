@@ -5,6 +5,9 @@ trait CustomFieldsTrait {
 
 	public abstract function add_field( string $name, string $type, array $args = [] );
 
+	public function add_textarea_field( string $name, array $args = [] ) {
+		return $this->add_field( $name, 'textarea', $args );
+	}
 	public function add_text_field( string $name, array $args = [] ) {
 		return $this->add_field( $name, 'text', $args );
 	}
@@ -17,5 +20,10 @@ trait CustomFieldsTrait {
 	public function add_terms_field( string $name, array $args = [] ) {
 		return $this->add_field( $name, 'terms', $args );
 	}
-
+	public function add_select_field( string $name, array $args = [] ) {
+		return $this->add_field( $name, 'select', $args );
+	}
+	public function add_repeater_field( string $name, array $args = [] ) {
+		return $this->add_field( $name, 'repeater', $args );
+	}
 }

@@ -1,7 +1,7 @@
 <?php
 namespace AsasVirtuaisWPCore\V0_9_1\Modules\Post;
 
-class CPTHelper {
+class Helper {
 
 	public static function cpt_labels( $slug ) {
 		$name     = str_replace( [ '-', '_' ], ' ', $slug );
