@@ -35,7 +35,6 @@ if ( ! class_exists( 'AsasVirtuaisWPCoreVersionLoader\\LoaderV0_9_2' ) ) {
 				_doing_it_wrong( __METHOD__, __METHOD__ . ' should be called only after plugins_loaded and before init ', '1.0.0' );
 			}
 
-			include_once dirname( $plugin_file ) . '/vendor/wpmetabox/meta-box/meta-box.php';
 			$this->load_libraries();
 			$this->add_psr4_autoload( $autoload );
 			$this->load_framework_static_instance();
